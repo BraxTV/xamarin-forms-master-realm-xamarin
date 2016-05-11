@@ -6,7 +6,7 @@ namespace RealmAddressBook.Services
 {
     public interface IDBService
     {
-        bool SavePerson(Person person);
+        bool SavePerson(string firstName, string lastName);
 
         List<Person> GetPeople();
     }

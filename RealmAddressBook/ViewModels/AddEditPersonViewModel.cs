@@ -17,31 +17,33 @@ namespace RealmAddressBook.ViewModels
 
 
 
+        private string firstName;
 
         public string FirstName
         {
             get
             {
-                return Model.FirstName;
+                return firstName;
             }
             set
             {
-                Model.FirstName = value;
+                firstName = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("FirstName"));
             }
         }
 
 
+        private string lastName;
 
         public string LastName
         {
             get
             {
-                return Model.LastName;
+                return lastName;
             }
             set
             {
-                Model.LastName = value;
+                lastName = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("LastName"));
             }
         }
@@ -55,7 +57,7 @@ namespace RealmAddressBook.ViewModels
         public AddEditPersonViewModel(IDBService dbService)
         {
             DBService = dbService;
-            SaveCommand = new Command(o => DBService.SavePerson(Model));
+            SaveCommand = new Command(o => DBService.SavePerson(FirstName, LastName));
 
         }
     }

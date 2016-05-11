@@ -12,7 +12,7 @@ namespace RealmAddressBook.Services
 
         #region IDBService implementation
 
-        public bool SavePerson(Person person)
+        public bool SavePerson(string firstName, string lastName)
         {
             throw new NotImplementedException();
         }
