@@ -27,7 +27,7 @@ namespace RealmAddressBook.ViewModels
             set
             {
                 people = value;
-                PropertyChangingEventHandler(this, new PropertyChangingEventArgs("People"));
+                PropertyChanged(this, new PropertyChangedEventArgs("People"));
             }
         }
 

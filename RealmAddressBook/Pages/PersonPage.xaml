@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="RealmAddressBook.Pages.PersonPage"
+	xmlns:local="clr-namespace:RealmAddressBook;assembly=RealmAddressBook"
+	BindingContext="{Binding AddEditPersonVM,Source={x:Static local:App.VMLocator}}"
+	Title="Add"
+	BackgroundImage="Background.jpg">
+	<ContentPage.Content>
+		<StackLayout
+			Padding="20">
+			<Frame
+				HasShadow="false">
+				<StackLayout
+					Orientation="Vertical">
+					<Label
+						Text="First Name:"
+						TextColor="Gray" />
+					<Entry
+						Placeholder="John"
+						HeightRequest="40"
+						Text="{Binding FirstName}" />
+					<BoxView
+						HeightRequest="20" />
+					<Label
+						Text="Last Name:"
+						TextColor="Gray" />
+					<Entry
+						Placeholder="Doe"
+						HeightRequest="40"
+						Text="{Binding LastName}" />
+				</StackLayout>
+			</Frame>
+			<BoxView
+				HeightRequest="20" />
+			<Button
+				Text="Create"
+				HorizontalOptions="FillAndExpand"
+				TextColor="White"
+				FontAttributes="Bold"
+				FontSize="20"
+				BackgroundColor="#8b7dbe"
+				Command="{Binding SaveCommand}" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

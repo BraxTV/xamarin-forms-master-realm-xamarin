@@ -3,14 +3,14 @@ using RealmAddressBook.Services;
 
 namespace RealmAddressBook.ViewModels
 {
-    public static class ViewModelLocator
+    public class ViewModelLocator
     {
 
-        public static PeopleListViewModel PeopleListVM{ get; set; }
+        public PeopleListViewModel PeopleListVM{ get; set; }
 
-        public static AddEditPersonViewModel AddEditPersonVM{ get; set; }
+        public AddEditPersonViewModel AddEditPersonVM{ get; set; }
 
-        static ViewModelLocator()
+        public ViewModelLocator()
         {
             var dbServiceToUse = new RealmDBService();
             PeopleListVM = new PeopleListViewModel(dbServiceToUse);

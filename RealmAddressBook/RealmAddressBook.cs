@@ -1,29 +1,20 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using RealmAddressBook.Pages;
+using RealmAddressBook.ViewModels;
 
 namespace RealmAddressBook
 {
     public class App : Application
     {
+
+        public static ViewModelLocator VMLocator = new ViewModelLocator();
+
         public App()
         {
             // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children =
-                    {
-                        new Label
-                        {
-                            XAlign = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainPage = new NavigationPage(new PeoplePage()){ BarBackgroundColor = Color.FromHex("#8b7dbe"), BarTextColor = Color.White };
         }
 
         protected override void OnStart()
