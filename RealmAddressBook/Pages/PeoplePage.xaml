@@ -10,7 +10,8 @@
 			Padding="20,0,20,0">
 			<ListView
 				VerticalOptions="FillAndExpand"
-				HorizontalOptions="FillAndExpand" />
+				HorizontalOptions="FillAndExpand">
+			</ListView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

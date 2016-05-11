@@ -1,8 +1,9 @@
 ﻿using System;
+using Realms;
 
 namespace RealmAddressBook.Models
 {
-    public class Person
+    public class Person:RealmObject
     {
 
         public string FirstName
