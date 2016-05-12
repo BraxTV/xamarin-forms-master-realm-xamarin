@@ -43,6 +43,11 @@ namespace RealmAddressBook.Services
 
         #endregion
 
+        public List<Person> SearchPeople(string searchText)
+        {
+            return RealmInstance.All<Person>().Where(p => p.FirstName.Contains(searchText) || p.LastName.Contains(searchText)).ToList();
+        }
+
        
     }
 }

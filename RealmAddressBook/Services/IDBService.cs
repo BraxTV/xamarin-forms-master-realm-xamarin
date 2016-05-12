@@ -10,6 +10,8 @@ namespace RealmAddressBook.Services
 
         List<Person> GetPeople();
 
+        List<Person> SearchPeople(string searchText);
+
 
     }
 }

@@ -32,6 +32,21 @@ namespace RealmAddressBook.ViewModels
         }
 
        
+        private string searchText;
+
+        public string SearchText
+        {
+            get
+            {
+                return searchText;
+            }
+            set
+            {
+                searchText = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("SearchText"));
+                People = new ObservableCollection<Person>(DBService.SearchPeople(searchText));
+            }
+        }
 
         protected IDBService DBService;
 
