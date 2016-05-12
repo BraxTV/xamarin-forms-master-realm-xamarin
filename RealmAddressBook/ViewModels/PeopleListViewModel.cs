@@ -31,11 +31,19 @@ namespace RealmAddressBook.ViewModels
             }
         }
 
+       
+
         protected IDBService DBService;
 
         public PeopleListViewModel(IDBService dbService)
         {
             DBService = dbService;
+            Init();
+        }
+
+        public void Init()
+        {
+            People = new ObservableCollection<Person>(DBService.GetPeople());
         }
     }
 }

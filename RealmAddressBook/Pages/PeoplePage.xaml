@@ -3,14 +3,24 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="RealmAddressBook.Pages.PeoplePage"
+	xmlns:local="clr-namespace:RealmAddressBook;assembly=RealmAddressBook"
+	BindingContext="{Binding PeopleListVM,Source={x:Static local:App.VMLocator}}"
 	Title="People"
 	BackgroundImage="Background.jpg">
 	<ContentPage.Content>
 		<StackLayout
-			Padding="20,0,20,0">
+			Padding="20,0,20,0"
+			Orientation="Vertical">
 			<ListView
 				VerticalOptions="FillAndExpand"
-				HorizontalOptions="FillAndExpand">
+				HorizontalOptions="FillAndExpand"
+				ItemsSource="{Binding People}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell
+							Text="{Binding FullName}" />
+					</DataTemplate>
+				</ListView.ItemTemplate>
 			</ListView>
 		</StackLayout>
 	</ContentPage.Content>

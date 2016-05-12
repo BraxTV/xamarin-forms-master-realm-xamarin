@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using RealmAddressBook.ViewModels;
 
 namespace RealmAddressBook.Pages
 {
@@ -17,6 +18,13 @@ namespace RealmAddressBook.Pages
         protected async Task GoPersonPage()
         {
             await this.Navigation.PushAsync(new PersonPage());
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (BindingContext != null)
+                (BindingContext as PeopleListViewModel).Init();
         }
     }
 }

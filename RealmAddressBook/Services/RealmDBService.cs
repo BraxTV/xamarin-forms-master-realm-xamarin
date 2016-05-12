@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using RealmAddressBook.Models;
 using Realms;
+using System.Linq;
 
 namespace RealmAddressBook.Services
 {
@@ -37,10 +38,12 @@ namespace RealmAddressBook.Services
 
         public List<Person> GetPeople()
         {
-            throw new NotImplementedException();
+            return RealmInstance.All<Person>().ToList();
         }
 
         #endregion
+
+       
     }
 }
 
