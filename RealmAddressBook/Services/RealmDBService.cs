@@ -17,13 +17,14 @@ namespace RealmAddressBook.Services
 
         #region IDBService implementation
 
-        public bool SavePerson(string firstName, string lastName)
+        public bool SavePerson(string id, string firstName, string lastName)
         {
             try
             {
                 RealmInstance.Write(() =>
                     {
                         var person = RealmInstance.CreateObject<Person>();
+                        person.ID = id;
                         person.FirstName = firstName;
                         person.LastName = lastName;
                     });

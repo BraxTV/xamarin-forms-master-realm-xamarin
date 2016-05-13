@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using RealmAddressBook.Models;
 using Xamarin.Forms;
 using RealmAddressBook.Services;
+using System.Diagnostics;
+using System.Windows.Input;
 
 namespace RealmAddressBook.ViewModels
 {
@@ -50,6 +52,8 @@ namespace RealmAddressBook.ViewModels
 
         protected IDBService DBService;
 
+
+
         public PeopleListViewModel(IDBService dbService)
         {
             DBService = dbService;
@@ -59,7 +63,10 @@ namespace RealmAddressBook.ViewModels
         public void Init()
         {
             People = new ObservableCollection<Person>(DBService.GetPeople());
+
         }
+
+
     }
 }
 

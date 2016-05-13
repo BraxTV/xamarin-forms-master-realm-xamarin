@@ -6,6 +6,9 @@ namespace RealmAddressBook.Models
     public class Person:RealmObject
     {
 
+        [ObjectId]
+        public string ID{ get; set; }
+
         public string FirstName
         {
             get;

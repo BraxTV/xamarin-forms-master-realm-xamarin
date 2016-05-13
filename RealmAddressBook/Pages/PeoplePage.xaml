@@ -15,6 +15,7 @@
 			<SearchBar
 				Text="{Binding SearchText}" />
 			<ListView
+				x:Name="ListView"
 				VerticalOptions="FillAndExpand"
 				HorizontalOptions="FillAndExpand"
 				ItemsSource="{Binding People}">
