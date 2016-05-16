@@ -54,10 +54,13 @@ namespace RealmAddressBook.ViewModels
 
         public ICommand SaveCommand{ get; set; }
 
+        public ICommand DeleteCommand{ get; set; }
+
         public AddEditPersonViewModel(IDBService dbService)
         {
             DBService = dbService;
             SaveCommand = new Command(() => DoSave());
+            DeleteCommand = new Command(() => DoDelete());
 
         }
 
@@ -76,6 +79,11 @@ namespace RealmAddressBook.ViewModels
         protected void DoSave()
         {
             DBService.SavePerson(Model.ID, FirstName, LastName);
+        }
+
+        protected void DoDelete()
+        {
+            DBService.DeletePerson(Model.ID);
         }
     }
 }

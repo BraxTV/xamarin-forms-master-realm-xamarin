@@ -15,6 +15,7 @@ namespace RealmAddressBook.Services
         Person GetPersonById(string id);
 
 
+        void DeletePerson(string iD);
     }
 }
 

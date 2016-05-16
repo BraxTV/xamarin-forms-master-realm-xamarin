@@ -14,12 +14,14 @@ namespace RealmAddressBook.Pages
         public PersonPage(string id)
         {
             PersonId = id;
+            CreateDeleteButton();
             InitializeComponent();
         }
 
 
         public PersonPage()
         {
+            CreateDeleteButton();
             InitializeComponent();
         }
 
@@ -30,6 +32,10 @@ namespace RealmAddressBook.Pages
                 (BindingContext as AddEditPersonViewModel).Init(PersonId);
         }
 
+        void CreateDeleteButton()
+        {
+            ToolbarItems.Add(new ToolbarItem("Delete", null, () => (BindingContext as AddEditPersonViewModel).DeleteCommand.Execute(null)));
+        }
     }
 }
 

@@ -54,6 +54,16 @@ namespace RealmAddressBook.Services
         {
             return GetPeople().FirstOrDefault(p => p.ID == id);
         }
+
+        public void DeletePerson(string id)
+        {
+            using (var trans = RealmInstance.BeginWrite())
+            {
+                RealmInstance.Remove(GetPersonById(id));
+                trans.Commit();
+            }
+
+        }
     }
 }
 
