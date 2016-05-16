@@ -15,20 +15,6 @@ namespace RealmAddressBook.ViewModels
 
         #endregion
 
-        private string id;
-
-        public string Id
-        {
-            get
-            {
-                return id;
-            }
-            set
-            {
-                id = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Id"));
-            }
-        }
 
 
         private string firstName;
@@ -71,8 +57,25 @@ namespace RealmAddressBook.ViewModels
         public AddEditPersonViewModel(IDBService dbService)
         {
             DBService = dbService;
-            SaveCommand = new Command(o => DBService.SavePerson(Id, FirstName, LastName));
+            SaveCommand = new Command(() => DoSave());
 
+        }
+
+      
+        public void Init(string id)
+        {
+            Model = id != null ? DBService.GetPersonById(id) : new Person()
+            {
+                ID = Guid.NewGuid().ToString()
+            };
+            FirstName = Model.FirstName;
+            LastName = Model.LastName;
+
+        }
+
+        protected void DoSave()
+        {
+            DBService.SavePerson(Model.ID, FirstName, LastName);
         }
     }
 }

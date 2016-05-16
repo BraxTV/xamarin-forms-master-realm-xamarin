@@ -17,7 +17,7 @@ namespace RealmAddressBook.Pages
             ListView.ItemTapped += async (object sender, ItemTappedEventArgs e) =>
             {
                 Person p = e.Item as Person;
-                await this.Navigation.PushAsync(new PersonPage(p.ID, p.FirstName, p.LastName));
+                await this.Navigation.PushAsync(new PersonPage(p.ID));
             };
         }
 

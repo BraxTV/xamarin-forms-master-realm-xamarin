@@ -12,6 +12,8 @@ namespace RealmAddressBook.Services
 
         List<Person> SearchPeople(string searchText);
 
+        Person GetPersonById(string id);
+
 
     }
 }

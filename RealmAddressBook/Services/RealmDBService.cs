@@ -50,6 +50,10 @@ namespace RealmAddressBook.Services
         }
 
        
+        public Person GetPersonById(string id)
+        {
+            return GetPeople().FirstOrDefault(p => p.ID == id);
+        }
     }
 }
 

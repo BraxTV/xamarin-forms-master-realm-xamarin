@@ -10,17 +10,13 @@ namespace RealmAddressBook.Pages
     {
         protected string PersonId;
 
-        protected string FirstName;
-
-        protected string LastName;
-
-        public PersonPage(string id, string firstName, string lastName)
+        
+        public PersonPage(string id)
         {
-            this.PersonId = id;
-            this.FirstName = firstName;
-            this.LastName = lastName;
+            PersonId = id;
             InitializeComponent();
         }
+
 
         public PersonPage()
         {
@@ -30,18 +26,10 @@ namespace RealmAddressBook.Pages
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
-            var vm = BindingContext as AddEditPersonViewModel;
-            if (string.IsNullOrEmpty(PersonId))
-            {
-                vm.Id = Guid.NewGuid().ToString();
-            }
-            else
-            {
-                vm.Id = PersonId;
-                vm.FirstName = FirstName;
-                vm.LastName = LastName;
-            }
+            if (this.BindingContext != null)
+                (BindingContext as AddEditPersonViewModel).Init(PersonId);
         }
+
     }
 }
 
