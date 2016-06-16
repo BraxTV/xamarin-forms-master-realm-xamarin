@@ -2,56 +2,57 @@
 <ContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="RealmAddressBook.Pages.PersonPage"
+	x:Class="RealmAddressBook.Pages.AddressPage"
 	xmlns:local="clr-namespace:RealmAddressBook;assembly=RealmAddressBook"
-	BindingContext="{Binding AddEditPersonVM,Source={x:Static local:App.VMLocator}}"
+	BindingContext="{Binding AddEditAddressVM,Source={x:Static local:App.VMLocator}}"
 	Title="Add/Edit Person"
 	BackgroundImage="Background.jpg">
 	<ContentPage.Content>
 		<StackLayout
+			Orientation="Vertical"
 			Padding="20">
 			<Frame
 				HasShadow="false">
 				<StackLayout
 					Orientation="Vertical">
 					<Label
-						Text="First Name:"
+						Text="Street:"
 						TextColor="Gray" />
 					<Entry
-						Placeholder="John"
 						HeightRequest="40"
-						Text="{Binding FirstName}" />
+						Text="{Binding Street}" />
 					<BoxView
 						HeightRequest="20" />
 					<Label
-						Text="Last Name:"
+						Text="Apt/Suite:"
 						TextColor="Gray" />
 					<Entry
-						Placeholder="Doe"
 						HeightRequest="40"
-						Text="{Binding LastName}" />
-				</StackLayout>
-			</Frame>
-			<Frame
-				HasShadow="false">
-				<StackLayout
-					Orientation="Vertical">
-					<StackLayout
-						Orientation="Horizontal">
-						<Label
-							Text="Addresses:"
-							TextColor="Gray"
-							HorizontalOptions="FillAndExpand"
-							VerticalOptions="Center" />
-						<Button
-							Text="Add"
-							x:Name="AddAddressButton"
-							VerticalOptions="Center" />
-					</StackLayout>
-					<ListView
-						HorizontalOptions="FillAndExpand"
-						VerticalOptions="FillAndExpand">
-					</ListView>
+						Text="{Binding SuiteApartment}" />
+					<BoxView
+						HeightRequest="20" />
+					<Label
+						Text="City:"
+						TextColor="Gray" />
+					<Entry
+						HeightRequest="40"
+						Text="{Binding City}" />
+					<BoxView
+						HeightRequest="20" />
+					<Label
+						Text="State:"
+						TextColor="Gray" />
+					<Entry
+						HeightRequest="40"
+						Text="{Binding State}" />
+					<BoxView
+						HeightRequest="20" />
+					<Label
+						Text="Zip:"
+						TextColor="Gray" />
+					<Entry
+						HeightRequest="40"
+						Text="{Binding Zip}" />
 				</StackLayout>
 			</Frame>
 			<BoxView

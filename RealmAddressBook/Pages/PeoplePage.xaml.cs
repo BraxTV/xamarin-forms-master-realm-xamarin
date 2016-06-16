@@ -10,27 +10,28 @@ namespace RealmAddressBook.Pages
 {
     public partial class PeoplePage : ContentPage
     {
-        public PeoplePage()
+        public PeoplePage ()
         {
-            InitializeComponent();
-            ToolbarItems.Add(new ToolbarItem("Add", null, async () => await GoPersonPage()));
-            ListView.ItemTapped += async (object sender, ItemTappedEventArgs e) =>
-            {
+            InitializeComponent ();
+            ToolbarItems.Add (new ToolbarItem ("Add", null, async () => await GoPersonPage ()));
+            ListView.ItemTapped += async (object sender, ItemTappedEventArgs e) => {
                 Person p = e.Item as Person;
-                await this.Navigation.PushAsync(new PersonPage(p.ID));
+                await this.Navigation.PushAsync (new PersonPage (p.ID));
             };
+
+
         }
 
-        protected async Task GoPersonPage()
+        protected async Task GoPersonPage ()
         {
-            await this.Navigation.PushAsync(new PersonPage());
+            await this.Navigation.PushAsync (new PersonPage ());
         }
 
-        protected override void OnAppearing()
+        protected override void OnAppearing ()
         {
-            base.OnAppearing();
+            base.OnAppearing ();
             if (BindingContext != null)
-                (BindingContext as PeopleListViewModel).Init();
+                (BindingContext as PeopleListViewModel).Init ();
         }
     }
 }

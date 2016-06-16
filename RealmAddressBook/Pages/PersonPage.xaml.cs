@@ -10,31 +10,33 @@ namespace RealmAddressBook.Pages
     {
         protected string PersonId;
 
-        
-        public PersonPage(string id)
+
+        public PersonPage (string id)
         {
             PersonId = id;
-            CreateDeleteButton();
-            InitializeComponent();
+            InitializeComponent ();
+            InitButtons ();
         }
 
 
-        public PersonPage()
+        public PersonPage ()
         {
-            CreateDeleteButton();
-            InitializeComponent();
+            InitializeComponent ();
+            InitButtons ();
         }
 
-        protected override void OnBindingContextChanged()
+        protected override void OnBindingContextChanged ()
         {
-            base.OnBindingContextChanged();
+            base.OnBindingContextChanged ();
             if (this.BindingContext != null)
-                (BindingContext as AddEditPersonViewModel).Init(PersonId);
+                (BindingContext as AddEditPersonViewModel).Init (PersonId);
         }
 
-        void CreateDeleteButton()
+        void InitButtons ()
         {
-            ToolbarItems.Add(new ToolbarItem("Delete", null, () => (BindingContext as AddEditPersonViewModel).DeleteCommand.Execute(null)));
+            ToolbarItems.Add (new ToolbarItem ("Delete", null, () => (BindingContext as AddEditPersonViewModel).DeleteCommand.Execute (null)));
+
+            AddAddressButton.Clicked += (sender, e) => this.Navigation.PushAsync (new AddressPage ());
         }
     }
 }
