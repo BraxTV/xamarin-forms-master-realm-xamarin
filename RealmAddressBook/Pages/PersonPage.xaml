@@ -50,7 +50,14 @@
 					</StackLayout>
 					<ListView
 						HorizontalOptions="FillAndExpand"
-						VerticalOptions="FillAndExpand">
+						VerticalOptions="FillAndExpand"
+						ItemsSource="{Binding Addresses}">
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								<TextCell
+									Text="{Binding Street}" />
+							</DataTemplate>
+						</ListView.ItemTemplate>
 					</ListView>
 				</StackLayout>
 			</Frame>

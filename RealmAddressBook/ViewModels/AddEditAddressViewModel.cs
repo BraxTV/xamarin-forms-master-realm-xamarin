@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
+using RealmAddressBook.Services;
 
 namespace RealmAddressBook.ViewModels
 {
@@ -34,16 +35,27 @@ namespace RealmAddressBook.ViewModels
             set;
         }
 
+
+        readonly IDBService DBService;
+
         public ICommand SaveCommand { get; set; }
 
-        public AddEditAddressViewModel ()
+        protected string PersonId;
+
+        public AddEditAddressViewModel (IDBService dbService)
         {
             SaveCommand = new Command (() => DoSave ());
+            DBService = dbService;
+        }
+
+        public void Init (string personId)
+        {
+            PersonId = personId;
         }
 
         void DoSave ()
         {
-            throw new NotImplementedException ();
+            DBService.SaveAddress (PersonId, Street, SuiteApartment, City, Zip, State);
         }
     }
 }

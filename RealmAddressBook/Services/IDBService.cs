@@ -6,16 +6,18 @@ namespace RealmAddressBook.Services
 {
     public interface IDBService
     {
-        bool SavePerson(string id, string firstName, string lastName);
+        bool SavePerson (string id, string firstName, string lastName);
 
-        List<Person> GetPeople();
+        bool SaveAddress (string personId, string street, string suiteApartment, string city, string zip, string state);
 
-        List<Person> SearchPeople(string searchText);
+        List<Person> GetPeople ();
 
-        Person GetPersonById(string id);
+        List<Person> SearchPeople (string searchText);
+
+        Person GetPersonById (string id);
 
 
-        void DeletePerson(string iD);
+        void DeletePerson (string iD);
     }
 }
 

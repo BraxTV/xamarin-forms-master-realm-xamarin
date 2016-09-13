@@ -5,6 +5,7 @@ using RealmAddressBook.Models;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RealmAddressBook.ViewModels
 {
@@ -43,14 +44,14 @@ namespace RealmAddressBook.ViewModels
             }
         }
 
-        private List<Address> addresses;
+        private List<Address> addresses = new List<Address> ();
 
         public List<Address> Addresses {
             get {
                 return addresses;
             }
             set {
-                Addresses = value;
+                addresses = value;
                 PropertyChanged (this, new PropertyChangedEventArgs ("Addresses"));
             }
         }
@@ -79,8 +80,16 @@ namespace RealmAddressBook.ViewModels
             };
             FirstName = Model.FirstName;
             LastName = Model.LastName;
+            if (Model.Addresses != null)
+                Addresses = Model.Addresses.ToList ();
 
 
+        }
+
+        public void Refresh ()
+        {
+            if (Model.Addresses != null)
+                Addresses = Model.Addresses.ToList ();
         }
 
         protected void DoSave ()

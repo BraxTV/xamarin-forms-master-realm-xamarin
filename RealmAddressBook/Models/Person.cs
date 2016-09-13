@@ -3,33 +3,36 @@ using Realms;
 
 namespace RealmAddressBook.Models
 {
-    public class Person:RealmObject
+    public class Person : RealmObject
     {
 
         [ObjectId]
-        public string ID{ get; set; }
+        public string ID { get; set; }
 
-        public string FirstName
-        {
+        public string FirstName {
             get;
             set;
         }
 
-        public string LastName
-        {
+        public string LastName {
             get;
             set;
         }
 
-        public string FullName
-        {
-            get
-            {
-                return string.Format("{0} {1}", FirstName, LastName);
+
+
+        public string FullName {
+            get {
+                return string.Format ("{0} {1}", FirstName, LastName);
             }
         }
 
-        public Person()
+        public RealmList<Address> Addresses {
+            get;
+
+        }
+
+        public Person ()
         {
         }
     }

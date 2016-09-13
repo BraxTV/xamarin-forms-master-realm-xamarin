@@ -17,7 +17,7 @@ namespace RealmAddressBook.ViewModels
             var dbServiceToUse = new RealmDBService ();
             PeopleListVM = new PeopleListViewModel (dbServiceToUse);
             AddEditPersonVM = new AddEditPersonViewModel (dbServiceToUse);
-            AddEditAddressVM = new AddEditAddressViewModel ();
+            AddEditAddressVM = new AddEditAddressViewModel (dbServiceToUse);
         }
     }
 }

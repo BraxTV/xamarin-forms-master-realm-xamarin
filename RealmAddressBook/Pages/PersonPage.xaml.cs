@@ -36,7 +36,14 @@ namespace RealmAddressBook.Pages
         {
             ToolbarItems.Add (new ToolbarItem ("Delete", null, () => (BindingContext as AddEditPersonViewModel).DeleteCommand.Execute (null)));
 
-            AddAddressButton.Clicked += (sender, e) => this.Navigation.PushAsync (new AddressPage ());
+            AddAddressButton.Clicked += (sender, e) => this.Navigation.PushAsync (new AddressPage (PersonId));
+        }
+
+        protected override void OnAppearing ()
+        {
+            base.OnAppearing ();
+            if (BindingContext != null)
+                (BindingContext as AddEditPersonViewModel).Refresh ();
         }
     }
 }
